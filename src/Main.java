@@ -1,7 +1,9 @@
+import com.aluracursos.screenmatch.calculos.CalculoDeTiempo;
 import com.formacionalura.screenmatch.modulo.Pelicula;
 import com.formacionalura.screenmatch.modulo.Serie;
+import com.formacionalura.screenmatch.modulo.Titulo;
 
-public class Principal {
+public class Main {
     public static void main(String[] args) {
         //Instanciando un objeto de la clase Pelicula
         //Es a través del objeto que podemos representar en este caso, llenar sus atributos y llamar a sus métodos
@@ -36,18 +38,21 @@ public class Principal {
 
         System.out.println(casaDePapel.getDuracionEnMinutos());
 
-
-        /*
         //Instanciando otra Pelicula
-        Pelicula otraPelicula = new.Pelicula();
-        otraPelicula.nombreDePelicula = "El Señor de los Anillos: La Comunidad del Anillo"; //Declarando valores de atributos
-        otraPelicula.fechaLanzamiento = 2001;
-        otraPelicula.duracionEnMinutos = 178;
-        otraPelicula.estaIncluido = false;
-
+        Pelicula otraPelicula = new Pelicula();
+        otraPelicula.setNombreDePelicula("El Señor de los Anillos: La Comunidad del Anillo");
+        otraPelicula.setFechaLanzamiento(2001);
+        otraPelicula.setDuracionEnMinutos(178);
         //Llamando a metodo que imprime los valores de la otra pelicula
         //Forma de reutilizacion de código
         otraPelicula.mostrarFichaTecnica();
-         */
+
+        CalculoDeTiempo calculadora = new CalculoDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(casaDePapel);
+        calculadora.incluye(otraPelicula);
+        System.out.println("El tiempo necesario para ver este título es de: "
+                + calculadora.getTiempoTotal() + " minutos");
+
     }
 }
