@@ -58,16 +58,15 @@ public class Main {
 
         System.out.println("--------------------------------");
 
-        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
-        filtroRecomendacion.filtra(miPelicula);
-        filtroRecomendacion.filtra(otraPelicula);
-
         Episodio episodio = new Episodio();
         episodio.setNumeroEpisodio(2);
         episodio.setNombreEpisodio("Tokyo y el profesor");
         episodio.setSerie(casaDePapel);
         episodio.setTotalVisualizaciones(60);
 
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra(miPelicula);
+        filtroRecomendacion.filtra(otraPelicula);
         filtroRecomendacion.filtra(episodio);
 
 
