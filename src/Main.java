@@ -1,4 +1,6 @@
 import com.aluracursos.screenmatch.calculos.CalculoDeTiempo;
+import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
+import com.formacionalura.screenmatch.modulo.Episodio;
 import com.formacionalura.screenmatch.modulo.Pelicula;
 import com.formacionalura.screenmatch.modulo.Serie;
 import com.formacionalura.screenmatch.modulo.Titulo;
@@ -53,6 +55,21 @@ public class Main {
         calculadora.incluye(otraPelicula);
         System.out.println("El tiempo necesario para ver este título es de: "
                 + calculadora.getTiempoTotal() + " minutos");
+
+        System.out.println("--------------------------------");
+
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra(miPelicula);
+        filtroRecomendacion.filtra(otraPelicula);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumeroEpisodio(2);
+        episodio.setNombreEpisodio("Tokyo y el profesor");
+        episodio.setSerie(casaDePapel);
+        episodio.setTotalVisualizaciones(60);
+
+        filtroRecomendacion.filtra(episodio);
+
 
     }
 }
