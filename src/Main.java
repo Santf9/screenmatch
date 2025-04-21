@@ -3,7 +3,8 @@ import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
 import com.formacionalura.screenmatch.modulo.Episodio;
 import com.formacionalura.screenmatch.modulo.Pelicula;
 import com.formacionalura.screenmatch.modulo.Serie;
-import com.formacionalura.screenmatch.modulo.Titulo;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -68,6 +69,26 @@ public class Main {
         filtroRecomendacion.filtra(miPelicula);
         filtroRecomendacion.filtra(otraPelicula);
         filtroRecomendacion.filtra(episodio);
+
+        var peliculaDeSanti = new Pelicula();
+        peliculaDeSanti.setNombreDePelicula("El transportador");
+        peliculaDeSanti.setFechaLanzamiento(2002);
+        peliculaDeSanti.setDuracionEnMinutos(110);
+
+        ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
+        listaDePeliculas.add(peliculaDeSanti);
+        listaDePeliculas.add(miPelicula);
+        listaDePeliculas.add(otraPelicula);
+
+        System.out.println("Tamaño de la Lista de películas: " + listaDePeliculas.size());
+        System.out.println("Primer película de la lista: " + listaDePeliculas.get(0).getNombreDePelicula());
+
+        System.out.println(listaDePeliculas);
+
+        System.out.println("toString de la película: " + listaDePeliculas.get(0).toString());
+
+
+
 
 
     }

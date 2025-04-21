@@ -17,4 +17,9 @@ public class Pelicula extends Titulo implements StarClasification {
     public int getStarClasificacion() {
         return (int) mediaDeEvaluaciones() / 2;
     }
+
+    @Override
+    public String toString() {
+        return "Pelicula: " + this.getNombreDePelicula() + " (" + getFechaLanzamiento() + ")";
+    }
 }
