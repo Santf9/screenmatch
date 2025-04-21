@@ -5,6 +5,10 @@ import com.aluracursos.screenmatch.calculos.StarClasification;
 public class Pelicula extends Titulo implements StarClasification {
     private String director;
 
+    public Pelicula(String nombre) {
+        this.setNombreDePelicula(nombre);
+    }
+
     public String getDirector() {
         return director;
     }

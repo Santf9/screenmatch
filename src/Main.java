@@ -8,15 +8,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        //Instanciando un objeto de la clase Pelicula
-        //Es a través del objeto que podemos representar en este caso, llenar sus atributos y llamar a sus métodos
-        Pelicula miPelicula = new Pelicula();
-        miPelicula.setNombreDePelicula("Salvando al Soldado Ryan");//Declarando valores de atributos
-        miPelicula.setFechaLanzamiento(1998);
+        // Instanciando un objeto de la clase Pelicula
+        // Es a través del objeto que podemos representar en este caso, llenar sus atributos y llamar a sus métodos
+        Pelicula miPelicula = new Pelicula("Salvando al Soldado Ryan");
+        miPelicula.setFechaLanzamiento(1998); // Declarando valores de atributos
         miPelicula.setDuracionEnMinutos(169);
         miPelicula.setEstaIncluido(true);
 
-        //Llamando a metodo que imprime valores de atributos de la Pelicula
+        // Llamando a metodo que imprime valores de atributos de la Pelicula
         miPelicula.mostrarFichaTecnica();
 
         System.out.println("--------------------------------");
@@ -30,7 +29,7 @@ public class Main {
 
         System.out.println("--------------------------------");
 
-        //Instanciando otro objeto de una nueva serie
+        // Instanciando otro objeto de una nueva serie
         Serie casaDePapel = new Serie();
         casaDePapel.setNombreDePelicula("La Casa de Papel");
         casaDePapel.setFechaLanzamiento(2017);
@@ -41,13 +40,12 @@ public class Main {
 
         System.out.println(casaDePapel.getDuracionEnMinutos());
 
-        //Instanciando otra Pelicula
-        Pelicula otraPelicula = new Pelicula();
-        otraPelicula.setNombreDePelicula("El Señor de los Anillos: La Comunidad del Anillo");
+        // Instanciando otra Pelicula
+        Pelicula otraPelicula = new Pelicula("El Señor de los Anillos: La Comunidad del Anillo");
         otraPelicula.setFechaLanzamiento(2001);
         otraPelicula.setDuracionEnMinutos(178);
-        //Llamando a metodo que imprime los valores de la otra pelicula
-        //Forma de reutilizacion de código
+        // Llamando a metodo que imprime los valores de la otra pelicula
+        // Forma de reutilizacion de código
         otraPelicula.mostrarFichaTecnica();
 
         CalculoDeTiempo calculadora = new CalculoDeTiempo();
@@ -70,8 +68,7 @@ public class Main {
         filtroRecomendacion.filtra(otraPelicula);
         filtroRecomendacion.filtra(episodio);
 
-        var peliculaDeSanti = new Pelicula();
-        peliculaDeSanti.setNombreDePelicula("El transportador");
+        var peliculaDeSanti = new Pelicula("El transportador");
         peliculaDeSanti.setFechaLanzamiento(2002);
         peliculaDeSanti.setDuracionEnMinutos(110);
 
@@ -81,13 +78,11 @@ public class Main {
         listaDePeliculas.add(otraPelicula);
 
         System.out.println("Tamaño de la Lista de películas: " + listaDePeliculas.size());
-        System.out.println("Primer película de la lista: " + listaDePeliculas.get(0).getNombreDePelicula());
+        System.out.println("Primer película de la lista: " + listaDePeliculas.get(0));
 
         System.out.println(listaDePeliculas);
 
-        System.out.println("toString de la película: " + listaDePeliculas.get(0).toString());
-
-
+        System.out.println("toString de la película: " + listaDePeliculas.get(1));
 
 
 
