@@ -5,6 +5,11 @@ public class Serie extends Titulo{
     private int episodiosPorTemporada;
     private int minutosPorEpisodio;
 
+    // Constructor heredado de la clase Titulo
+    public Serie(String nombreDePelicula, int fechaLanzamiento) {
+        super(nombreDePelicula, fechaLanzamiento);
+    }
+
     public int getTemporadas() {
         return temporadas;
     }

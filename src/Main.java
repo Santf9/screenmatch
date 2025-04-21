@@ -10,10 +10,9 @@ public class Main {
     public static void main(String[] args) {
         // Instanciando un objeto de la clase Pelicula
         // Es a través del objeto que podemos representar en este caso, llenar sus atributos y llamar a sus métodos
-        Pelicula miPelicula = new Pelicula("Salvando al Soldado Ryan");
-        miPelicula.setFechaLanzamiento(1998); // Declarando valores de atributos
+        Pelicula miPelicula = new Pelicula("Salvando al Soldado Ryan", 1998);
         miPelicula.setDuracionEnMinutos(169);
-        miPelicula.setEstaIncluido(true);
+        miPelicula.setEstaIncluido(true); // Declarando valores de atributos
 
         // Llamando a metodo que imprime valores de atributos de la Pelicula
         miPelicula.mostrarFichaTecnica();
@@ -30,9 +29,7 @@ public class Main {
         System.out.println("--------------------------------");
 
         // Instanciando otro objeto de una nueva serie
-        Serie casaDePapel = new Serie();
-        casaDePapel.setNombreDePelicula("La Casa de Papel");
-        casaDePapel.setFechaLanzamiento(2017);
+        Serie casaDePapel = new Serie("La Casa de Papel", 2017);
         casaDePapel.setTemporadas(5);
         casaDePapel.setEpisodiosPorTemporada(8);
         casaDePapel.setMinutosPorEpisodio(50);
@@ -41,12 +38,9 @@ public class Main {
         System.out.println(casaDePapel.getDuracionEnMinutos());
 
         // Instanciando otra Pelicula
-        Pelicula otraPelicula = new Pelicula("El Señor de los Anillos: La Comunidad del Anillo");
-        otraPelicula.setFechaLanzamiento(2001);
-        otraPelicula.setDuracionEnMinutos(178);
-        // Llamando a metodo que imprime los valores de la otra pelicula
-        // Forma de reutilizacion de código
-        otraPelicula.mostrarFichaTecnica();
+        Pelicula otraPelicula = new Pelicula("El Señor de los Anillos: La Comunidad del Anillo", 2001);
+        otraPelicula.setDuracionEnMinutos(178); // Llamando a metodo que imprime los valores de la otra pelicula
+        otraPelicula.mostrarFichaTecnica(); // Forma de reutilizacion de código
 
         CalculoDeTiempo calculadora = new CalculoDeTiempo();
         calculadora.incluye(miPelicula);
@@ -68,8 +62,7 @@ public class Main {
         filtroRecomendacion.filtra(otraPelicula);
         filtroRecomendacion.filtra(episodio);
 
-        var peliculaDeSanti = new Pelicula("El transportador");
-        peliculaDeSanti.setFechaLanzamiento(2002);
+        var peliculaDeSanti = new Pelicula("El transportador", 2002);
         peliculaDeSanti.setDuracionEnMinutos(110);
 
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();

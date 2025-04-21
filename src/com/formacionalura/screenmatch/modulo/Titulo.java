@@ -9,6 +9,12 @@ public class Titulo {
     private double sumaEvaluaciones;
     private int totalDeEvaluaciones;
 
+    // Constructor
+    public Titulo(String nombreDePelicula, int fechaLanzamiento) {
+        this.nombreDePelicula = nombreDePelicula;
+        this.fechaLanzamiento = fechaLanzamiento;
+    }
+
     // Modificador de acceso default - Solo se accede desde la misma clase o paquete
 
     // Encapsulamiento - Getters y Setters
