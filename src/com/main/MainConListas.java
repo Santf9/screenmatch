@@ -6,6 +6,8 @@ import com.formacionalura.screenmatch.modulo.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class MainConListas {
     public static void main(String[] args) {
@@ -51,8 +53,17 @@ public class MainConListas {
 
         System.out.println("------------------------");
 
+        // Ordenando la lista de títulos mediante "Collections"
         Collections.sort(lista);
         System.out.println("Lista de títulos ordenados: " + lista);
+
+        System.out.println("------------------------");
+
+        // Ordenando la lista de Titulos por fecha de lanzamiento mediante el uso de "Comparator"
+        lista.sort(Comparator.comparing(Titulo::getFechaLanzamiento));
+        System.out.println("Lista de títulos ordenados por fecha de lanzamiento: " + lista);
+
+
 
 
 
