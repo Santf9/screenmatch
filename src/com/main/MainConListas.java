@@ -5,6 +5,7 @@ import com.formacionalura.screenmatch.modulo.Serie;
 import com.formacionalura.screenmatch.modulo.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainConListas {
     public static void main(String[] args) {
@@ -33,9 +34,25 @@ public class MainConListas {
             }
         }
 
+        System.out.println("------------------------");
 
+        ArrayList<String> listaDeArtistas = new ArrayList<>();
+        listaDeArtistas.add("Brad Pitt");
+        listaDeArtistas.add("Tom Hanks");
+        listaDeArtistas.add("Al Pacino");
+        listaDeArtistas.add("Johnny Depp");
+        System.out.println(listaDeArtistas);
 
+        System.out.println("------------------------");
 
+        // Ordenando la lista de artistas
+        Collections.sort(listaDeArtistas);
+        System.out.println("Lista ordenada: " + listaDeArtistas);
+
+        System.out.println("------------------------");
+
+        Collections.sort(lista);
+        System.out.println("Lista de títulos ordenados: " + lista);
 
 
 
