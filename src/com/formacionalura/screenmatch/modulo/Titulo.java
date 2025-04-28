@@ -1,9 +1,13 @@
 package com.formacionalura.screenmatch.modulo;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> {
     //Atributos de la Clase Título
+    @SerializedName("Title")
     private String nombreDePelicula;
-    private int fechaLanzamiento; // Modificador de acceso private
+    @SerializedName("Year")
+    private int fechaLanzamiento;
     private int duracionEnMinutos;
     private boolean estaIncluido;
     private double sumaEvaluaciones;
@@ -72,5 +76,11 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo otroTitulo) {
         return this.getNombreDePelicula().compareTo(otroTitulo.getNombreDePelicula());
+    }
+
+    @Override
+    public String toString() {
+        return "nombreDePelicula=' " + nombreDePelicula + '\'' +
+                ", fechaLanzamiento= " + fechaLanzamiento;
     }
 }
