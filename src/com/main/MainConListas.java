@@ -1,13 +1,12 @@
 package com.main;
 
-import com.formacionalura.screenmatch.modulo.Pelicula;
-import com.formacionalura.screenmatch.modulo.Serie;
-import com.formacionalura.screenmatch.modulo.Titulo;
+import com.formacionalura.screenmatch.modelos.Pelicula;
+import com.formacionalura.screenmatch.modelos.Serie;
+import com.formacionalura.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class MainConListas {
     public static void main(String[] args) {

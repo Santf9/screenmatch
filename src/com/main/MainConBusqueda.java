@@ -1,7 +1,11 @@
 package com.main;
 
-import com.formacionalura.screenmatch.modulo.Titulo;
+import com.formacionalura.screenmatch.modelos.Titulo;
+import com.formacionalura.screenmatch.modelos.TituloOmdb;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -33,9 +37,17 @@ public class MainConBusqueda {
 
         System.out.println(json);
 
-        // Instanciando un objeto de la dependencia Gson para mostrar el JSON serializado de Titulo
-        Gson gson = new Gson();
-        Titulo miTitulo = gson.fromJson(json, Titulo.class);
+        // Permite decirle a JSON que los nombres que vamos a recibir van a ser todos en UpperCamelCase
+        // Esto permite no tener que serializar los atributos de la clase Titulo
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                .create();
+        // Deserializando el JSON a un objeto del Record TituloOmdb
+        TituloOmdb miTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+        System.out.println(miTituloOmdb);
+
+        // Instanciando un objeto de la clase Titulo y pasando como parámetro el Record TituloOmdb
+        Titulo miTitulo = new Titulo(miTituloOmdb);
         System.out.println(miTitulo);
     }
 }

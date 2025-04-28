@@ -1,0 +1,93 @@
+package com.formacionalura.screenmatch.modelos;
+
+import com.google.gson.annotations.SerializedName;
+
+public class Titulo implements Comparable<Titulo> {
+    //Atributos de la Clase Título
+    @SerializedName("Title")
+    private String nombreDePelicula;
+    @SerializedName("Year")
+    private int fechaLanzamiento;
+    private int duracionEnMinutos;
+    private boolean estaIncluido;
+    private double sumaEvaluaciones;
+    private int totalDeEvaluaciones;
+
+    // Constructor
+    public Titulo(String nombreDePelicula, int fechaLanzamiento) {
+        this.nombreDePelicula = nombreDePelicula;
+        this.fechaLanzamiento = fechaLanzamiento;
+    }
+
+    public Titulo(TituloOmdb miTituloOmdb) {
+        this.nombreDePelicula = miTituloOmdb.title();
+        this.fechaLanzamiento = Integer.valueOf(miTituloOmdb.year());
+        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0, 2));
+    }
+
+    // Modificador de acceso default - Solo se accede desde la misma clase o paquete
+    // Encapsulamiento - Getters y Setters
+    public String getNombreDePelicula() {
+        return nombreDePelicula;
+    }
+    public int getFechaLanzamiento() {
+        return fechaLanzamiento;
+    }
+
+    public int getDuracionEnMinutos() {
+        return duracionEnMinutos;
+    }
+
+    public boolean isEstaIncluido() {
+        return estaIncluido;
+    }
+
+    public int getTotalDeEvaluaciones() {
+        return totalDeEvaluaciones;
+    }
+
+    public void setNombreDePelicula(String nombre) {
+        this.nombreDePelicula = nombre;
+    }
+
+    public void setFechaLanzamiento(int fechaLanzamiento) {
+        this.fechaLanzamiento = fechaLanzamiento;
+    }
+
+    public void setDuracionEnMinutos(int duracionEnMinutos) {
+        this.duracionEnMinutos = duracionEnMinutos;
+    }
+
+    public void setEstaIncluido(boolean estaIncluido) {
+        this.estaIncluido = estaIncluido;
+    }
+
+    public void mostrarFichaTecnica() {
+        System.out.println("El nombre del título: " + nombreDePelicula);
+        System.out.println("La fecha de lanzamiento: " + fechaLanzamiento);
+        System.out.println("Su duración en minutos: " + getDuracionEnMinutos());
+        System.out.println("¿Está incluido en el plan? " + estaIncluido);
+    }
+
+    public void evalua(double nota) {
+        sumaEvaluaciones += nota;
+        totalDeEvaluaciones++;
+    }
+
+    public double mediaDeEvaluaciones() {
+        return sumaEvaluaciones / totalDeEvaluaciones;
+    }
+
+    // Metodo sobreescrito de la interfaz Comparable para comparar y ordenar Lista de tipo Título
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombreDePelicula().compareTo(otroTitulo.getNombreDePelicula());
+    }
+
+    @Override
+    public String toString() {
+        return "nombreDePelicula=' " + nombreDePelicula + '\'' +
+                ", fechaLanzamiento= " + fechaLanzamiento +
+                ", duracionEnMinutos= " + duracionEnMinutos;
+    }
+}

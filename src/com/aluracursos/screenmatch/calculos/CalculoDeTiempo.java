@@ -1,5 +1,5 @@
 package com.aluracursos.screenmatch.calculos;
-import com.formacionalura.screenmatch.modulo.Titulo;
+import com.formacionalura.screenmatch.modelos.Titulo;
 
 public class CalculoDeTiempo {
     private int tiempoTotal;

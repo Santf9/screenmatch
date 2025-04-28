@@ -2,9 +2,9 @@ package com.main;
 
 import com.aluracursos.screenmatch.calculos.CalculoDeTiempo;
 import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
-import com.formacionalura.screenmatch.modulo.Episodio;
-import com.formacionalura.screenmatch.modulo.Pelicula;
-import com.formacionalura.screenmatch.modulo.Serie;
+import com.formacionalura.screenmatch.modelos.Episodio;
+import com.formacionalura.screenmatch.modelos.Pelicula;
+import com.formacionalura.screenmatch.modelos.Serie;
 
 import java.util.ArrayList;
 
