@@ -20,7 +20,8 @@ public class MainConBusqueda {
         System.out.println("Escribe el nombre de la película que deseas buscar:");
         var nombrePelicula = text.nextLine();
 
-        String direccion = "https://www.omdbapi.com/?apikey=89a91ad0&t="+ nombrePelicula;
+        String apiKey = "89a91ad0";
+        String direccion = "https://www.omdbapi.com/?apikey=".concat(apiKey).concat("&t=") + nombrePelicula;
 
         // Clase HttpClient para realizar la petición
         HttpClient client = HttpClient.newHttpClient();
