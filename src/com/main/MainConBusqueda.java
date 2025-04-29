@@ -47,8 +47,15 @@ public class MainConBusqueda {
         TituloOmdb miTituloOmdb = gson.fromJson(json, TituloOmdb.class);
         System.out.println(miTituloOmdb);
 
-        // Instanciando un objeto de la clase Titulo y pasando como parámetro el Record TituloOmdb
-        Titulo miTitulo = new Titulo(miTituloOmdb);
-        System.out.println(miTitulo);
+        try{
+            Titulo miTitulo = new Titulo(miTituloOmdb);
+            // Instanciando un objeto de la clase Titulo y pasando como parámetro el Record TituloOmdb
+            System.out.println(miTitulo);
+        } catch(NumberFormatException e) {
+            System.out.println("Ocurrio un error: " + e.getMessage());
+        }
+
+        System.out.println("Finalizó la ejecución del programa!");
+
     }
 }
