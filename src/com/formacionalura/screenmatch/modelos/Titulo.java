@@ -1,5 +1,6 @@
 package com.formacionalura.screenmatch.modelos;
 
+import com.formacionalura.screenmatch.exception.ErrorEnConversionDeDuracionException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
@@ -22,7 +23,12 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(TituloOmdb miTituloOmdb) {
         this.nombreDePelicula = miTituloOmdb.title();
         this.fechaLanzamiento = Integer.valueOf(miTituloOmdb.year());
-        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0, 2));
+        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0, 3).replace(" ",""));
+
+        if (miTituloOmdb.runtime().contains("N/A")) {
+            throw new ErrorEnConversionDeDuracionException("No puede convertir la duración," +
+                    " porque contiene un N/A");
+        }
     }
 
     // Modificador de acceso default - Solo se accede desde la misma clase o paquete
@@ -86,7 +92,7 @@ public class Titulo implements Comparable<Titulo> {
 
     @Override
     public String toString() {
-        return "Nombre de la Pelicula=' " + nombreDePelicula + '\'' +
+        return  "'" + nombreDePelicula + '\'' +
                 ", Fecha de lanzamiento= " + fechaLanzamiento +
                 ", Duracion en minutos= " + duracionEnMinutos;
     }

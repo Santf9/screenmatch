@@ -1,5 +1,6 @@
 package com.main;
 
+import com.formacionalura.screenmatch.exception.ErrorEnConversionDeDuracionException;
 import com.formacionalura.screenmatch.modelos.Titulo;
 import com.formacionalura.screenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
@@ -21,38 +22,47 @@ public class MainConBusqueda {
         var nombrePelicula = text.nextLine();
 
         String apiKey = "89a91ad0";
-        String direccion = "https://www.omdbapi.com/?apikey=".concat(apiKey).concat("&t=") + nombrePelicula;
+        String direccion = "https://www.omdbapi.com/?apikey=".concat(apiKey).concat("&t=")
+                + nombrePelicula.replace(" ", "+");
 
-        // Clase HttpClient para realizar la petición
-        HttpClient client = HttpClient.newHttpClient();
-        // Clase HttpRequest para construir la petición
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(direccion))
-                .build();
-        // Clase HttpResponse para manejar la respuesta
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
+        try {
+            // Clase HttpClient para realizar la petición
+            HttpClient client = HttpClient.newHttpClient();
+            // Clase HttpRequest para construir la petición
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(direccion))
+                    .build();
+            // Clase HttpResponse para manejar la respuesta
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
 
-        // Guardando la respuesta en una variable String
-        String json = response.body();
+            // Guardando la respuesta en una variable String
+            String json = response.body();
 
-        System.out.println(json);
+            System.out.println(json);
 
-        // Permite decirle a JSON que los nombres que vamos a recibir van a ser todos en UpperCamelCase
-        // Esto permite no tener que serializar los atributos de la clase Titulo
-        Gson gson = new GsonBuilder()
-                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                .create();
-        // Deserializando el JSON a un objeto del Record TituloOmdb
-        TituloOmdb miTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-        System.out.println(miTituloOmdb);
+            // Permite decirle a JSON que los nombres que vamos a recibir van a ser todos en UpperCamelCase
+            // Esto permite no tener que serializar los atributos de la clase Titulo
+            Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                    .create();
+            // Deserializando el JSON a un objeto del Record TituloOmdb
+            TituloOmdb miTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+            System.out.println(miTituloOmdb);
 
-        try{
+
             Titulo miTitulo = new Titulo(miTituloOmdb);
             // Instanciando un objeto de la clase Titulo y pasando como parámetro el Record TituloOmdb
-            System.out.println(miTitulo);
+            System.out.println("Titulo ya convertido: " + miTitulo);
+
         } catch(NumberFormatException e) {
             System.out.println("Ocurrio un error: " + e.getMessage());
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error en la URI, verifique la dirección.");
+
+        } catch (ErrorEnConversionDeDuracionException e) {
+            System.out.println(e.getMessage());
         }
 
         System.out.println("Finalizó la ejecución del programa!");
