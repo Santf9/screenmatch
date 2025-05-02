@@ -7,6 +7,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -55,6 +56,11 @@ public class MainConBusqueda {
             // Instanciando un objeto de la clase Titulo y pasando como parámetro el Record TituloOmdb
             System.out.println("Titulo ya convertido: " + miTitulo);
 
+            FileWriter escritura = new FileWriter("peliculas.txt");
+            escritura.write(miTitulo.toString());
+            escritura.close();
+
+
         } catch(NumberFormatException e) {
             System.out.println("Ocurrio un error: " + e.getMessage());
 
@@ -64,7 +70,7 @@ public class MainConBusqueda {
         } catch (ErrorEnConversionDeDuracionException e) {
             System.out.println(e.getMessage());
         }
-
+        // Se ejecuta igualmente si no se lanza ninguna excepción, es igual que el finally
         System.out.println("Finalizó la ejecución del programa!");
 
     }
