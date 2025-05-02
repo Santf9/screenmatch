@@ -1,0 +1,26 @@
+[
+  {
+    "NombreDePelicula": "Top Gun",
+    "FechaLanzamiento": 1986,
+    "DuracionEnMinutos": 109,
+    "EstaIncluido": false,
+    "SumaEvaluaciones": 0.0,
+    "TotalDeEvaluaciones": 0
+  },
+  {
+    "NombreDePelicula": "Matrix",
+    "FechaLanzamiento": 1993,
+    "DuracionEnMinutos": 60,
+    "EstaIncluido": false,
+    "SumaEvaluaciones": 0.0,
+    "TotalDeEvaluaciones": 0
+  },
+  {
+    "NombreDePelicula": "Encanto",
+    "FechaLanzamiento": 2021,
+    "DuracionEnMinutos": 102,
+    "EstaIncluido": false,
+    "SumaEvaluaciones": 0.0,
+    "TotalDeEvaluaciones": 0
+  }
+]
