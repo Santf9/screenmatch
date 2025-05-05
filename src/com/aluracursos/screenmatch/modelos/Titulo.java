@@ -1,7 +1,6 @@
-package com.formacionalura.screenmatch.modelos;
+package com.aluracursos.screenmatch.modelos;
 
-import com.formacionalura.screenmatch.exception.ErrorEnConversionDeDuracionException;
-import com.google.gson.annotations.SerializedName;
+import com.aluracursos.screenmatch.exception.ErrorEnConversionDeDuracionException;
 
 public class Titulo implements Comparable<Titulo> {
     //Atributos de la Clase Título

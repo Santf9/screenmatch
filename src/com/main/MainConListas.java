@@ -1,8 +1,8 @@
 package com.main;
 
-import com.formacionalura.screenmatch.modelos.Pelicula;
-import com.formacionalura.screenmatch.modelos.Serie;
-import com.formacionalura.screenmatch.modelos.Titulo;
+import com.aluracursos.screenmatch.modelos.Pelicula;
+import com.aluracursos.screenmatch.modelos.Serie;
+import com.aluracursos.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.formacionalura.screenmatch.exception;
+package com.aluracursos.screenmatch.exception;
 
 public class ErrorEnConversionDeDuracionException extends RuntimeException {
 

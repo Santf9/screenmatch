@@ -1,8 +1,8 @@
 package com.main;
 
-import com.formacionalura.screenmatch.exception.ErrorEnConversionDeDuracionException;
-import com.formacionalura.screenmatch.modelos.Titulo;
-import com.formacionalura.screenmatch.modelos.TituloOmdb;
+import com.aluracursos.screenmatch.exception.ErrorEnConversionDeDuracionException;
+import com.aluracursos.screenmatch.modelos.Titulo;
+import com.aluracursos.screenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

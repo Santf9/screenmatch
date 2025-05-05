@@ -1,4 +1,4 @@
-package com.formacionalura.screenmatch.modelos;
+package com.aluracursos.screenmatch.modelos;
 
 import com.aluracursos.screenmatch.calculos.StarClasification;
 
