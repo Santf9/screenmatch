@@ -16,6 +16,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class MainConBusqueda {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -39,9 +40,10 @@ public class MainConBusqueda {
                 break;
             }
 
-            String apiKey = "89a91ad0";
-            String direccion = "https://www.omdbapi.com/?apikey=".concat(apiKey).concat("&t=")
-                    + nombrePelicula.replace(" ", "+");
+            // Cargamos el archivo .env
+            Dotenv dotenv = Dotenv.load();
+            String apiKey = dotenv.get("API_KEY");
+            String direccion = "https://www.omdbapi.com/?apikey=".concat(apiKey).concat("&t=") + nombrePelicula.replace(" ", "+");
 
             try {
                 // Clase HttpClient para realizar la petición
